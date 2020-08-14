@@ -5,7 +5,9 @@
 		}
 	],
 	"settings": {
-		"terminal.integrated.shell.windows": "pwsh",
+		"[typescript]": {
+			"editor.tabSize": 2
+		},
 		"terminal.integrated.fontFamily": "Fira Code",
 		"terminal.integrated.fontSize": 12,
 		"cSpell.words": [
