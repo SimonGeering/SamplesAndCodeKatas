@@ -1,0 +1,47 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"terminal.integrated.shell.windows": "pwsh",
+		"terminal.integrated.fontFamily": "Fira Code",
+		"terminal.integrated.fontSize": 12,
+		"cSpell.words": [
+			"Halfling",
+			"Kata",
+			"MMORPG",
+			"Royse",
+			"evercraftkata",
+			"guyroyse",
+			"longsword",
+			"pwsh",
+			"walterg"
+		],
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/node_modules": true
+		}
+	},
+	"launch": {
+		// Use IntelliSense to learn about possible attributes.
+		// Hover to view descriptions of existing attributes.
+		// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Debug Jest Tests",
+				"type": "node",
+				"request": "launch",
+				"runtimeArgs": ["--inspect-brk", "${workspaceRoot}/node_modules/.bin/jest", "--runInBand"],
+				"console": "integratedTerminal",
+				"internalConsoleOptions": "neverOpen"
+			}
+		]
+	}
+}
