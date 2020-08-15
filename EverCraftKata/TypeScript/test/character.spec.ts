@@ -1,8 +1,8 @@
 import { Character, Alignment } from '../src';
 
-describe('Character', () => {
+describe('A character', () => {
 
-  it('Has a name', () => {
+  it('has a name', () => {
 
     const character = new Character();
 
@@ -16,7 +16,7 @@ describe('Character', () => {
     ${Alignment.Good}
     ${Alignment.Neutral}
     ${Alignment.Evil}
-    `('Can have a "$alignment" alignment', (alignment: Alignment) => {
+    `('can have a "$alignment" alignment', (alignment: Alignment) => {
 
     const character = new Character();
 
