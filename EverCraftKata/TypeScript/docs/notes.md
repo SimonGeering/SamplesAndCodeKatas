@@ -1,13 +1,13 @@
 # Dev notes
 
-## Sample ts-jest
-
-<https://github.com/mtiller/ts-jest-sample>
-
 ## Reference
+
+- [Jest cheat sheet](https://devhints.io/jest)
 
 - [Jest global api](https://jestjs.io/docs/en/api)
 - [Jest expect](https://jestjs.io/docs/en/expect)
+
+- [Basic ts-jest Setup](https://github.com/mtiller/ts-jest-sample)
 
 ## Books and Articles
 
