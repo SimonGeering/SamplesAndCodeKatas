@@ -8,6 +8,15 @@
     "test": "jest --watchAll",
     "jest": "jest"
   },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "moduleNameMapper": {
+      "^@App/(.*)$": "<rootDir>/src/$1",
+      "^lib/(.*)$": "<rootDir>/common/$1"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SimonGeering/SamplesAndCodeKatas.git"
@@ -21,6 +30,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.9",
     "jest": "^26.4.0",
+    "moq.ts": "^6.4.0",
     "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"
   }
