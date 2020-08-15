@@ -1,11 +1,20 @@
 import { Alignment } from './alignment'
-import { ICombatant } from './combatant'
+import { Combatant } from './combatant'
+import { D20 } from './dice'
 
-export class Character implements ICombatant {
+export class Character implements Combatant {
 
-  public Name: string;
-  public Alignment: Alignment;
+  public Name = '';
+  public Alignment: Alignment = Alignment.Neutral;
 
-  public ArmourClass: number = 10;
-  public HitPoints: number = 5;
+  public ArmourClass = 10;
+  public HitPoints = 5;
+
+  public Attack(combatant: Combatant, dice: D20): boolean {
+
+    if (dice.Roll() >= combatant.ArmourClass)
+      return true;
+    else
+      return false;
+  }
 }

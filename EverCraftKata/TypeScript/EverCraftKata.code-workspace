@@ -11,15 +11,19 @@
 		"terminal.integrated.fontFamily": "Fira Code",
 		"terminal.integrated.fontSize": 12,
 		"cSpell.words": [
+			"Evercraft",
 			"Halfling",
 			"Kata",
 			"MMORPG",
 			"Royse",
+			"critting",
+			"elven",
 			"evercraftkata",
 			"guyroyse",
 			"longsword",
 			"pwsh",
-			"walterg"
+			"walterg",
+			"waraxe"
 		],
 		"files.exclude": {
 			"**/.git": true,

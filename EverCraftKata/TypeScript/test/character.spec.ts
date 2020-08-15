@@ -1,4 +1,4 @@
-import { Character, Alignment } from '../src';
+import { Character, Alignment } from '../src/index';
 
 describe('A character', () => {
 
