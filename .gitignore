@@ -350,10 +350,3 @@ MigrationBackup/
 .ionide/
 
 EverCraftKata/TypeScript/coverage/
-/EverCraftKata/TypeScript/src/dice.js
-/EverCraftKata/TypeScript/src/combatant.js
-/EverCraftKata/TypeScript/src/index.js
-/EverCraftKata/TypeScript/src/character.js
-/EverCraftKata/TypeScript/src/alignment.js
-/EverCraftKata/TypeScript/test/character.spec.js
-/EverCraftKata/TypeScript/test/combatant.spec.js
