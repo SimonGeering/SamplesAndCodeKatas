@@ -1,0 +1,28 @@
+{
+  "name": "evercraftkata",
+  "version": "1.0.0",
+  "description": "A TypeScript / Jest implementation of the EverCraft coding Kata",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --watchAll",
+    "jest": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimonGeering/SamplesAndCodeKatas.git"
+  },
+  "author": "Simon Geering",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SimonGeering/SamplesAndCodeKatas/issues"
+  },
+  "homepage": "https://github.com/SimonGeering/SamplesAndCodeKatas#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.9",
+    "jest": "^26.4.0",
+    "ts-jest": "^26.2.0",
+    "typemoq": "^2.1.0",
+    "typescript": "^3.9.7"
+  }
+}
