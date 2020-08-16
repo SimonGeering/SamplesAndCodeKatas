@@ -1,4 +1,5 @@
 import { Character, Combatant, AttackOutcome, D20 } from '../src/index';
+// @ts-ignore
 import { Mock } from 'moq.ts';
 
 describe('A combatant', () => {
