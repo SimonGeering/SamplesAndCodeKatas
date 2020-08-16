@@ -1,6 +1,5 @@
 import { Character, Combatant, AttackOutcome, D20 } from '../src/index';
-// @ts-ignore
-import { Mock } from 'moq.ts';
+import * as TypeMoq from 'typemoq';
 
 describe('A combatant', () => {
 
@@ -25,33 +24,30 @@ describe('A combatant', () => {
 
     it('They will hit on a D20 roll equal to their opponents armour class.', () => {
 
-      const mockD20 = new Mock<D20>()
-        .setup(x => x.Roll)
-        .returns(() => opponent.ArmourClass).object();
+      const mockD20 = TypeMoq.Mock.ofType<D20>();
+      mockD20.setup(x => x.Roll()).returns(() => opponent.ArmourClass);
 
-      const hitAttempt: AttackOutcome = combatant.Attack(opponent, mockD20);
+      const hitAttempt: AttackOutcome = combatant.Attack(opponent, mockD20.object);
 
       expect(hitAttempt).toBe(AttackOutcome.Hit);
     });
 
     it('They will hit on a D20 roll better than their opponents armour class.', () => {
 
-      const mockD20 = new Mock<D20>()
-        .setup(x => x.Roll)
-        .returns(() => opponent.ArmourClass + 1).object();
+      const mockD20 = TypeMoq.Mock.ofType<D20>();
+      mockD20.setup(x => x.Roll()).returns(() => opponent.ArmourClass + 1);
 
-      const hitAttempt: AttackOutcome = combatant.Attack(opponent, mockD20);
+      const hitAttempt: AttackOutcome = combatant.Attack(opponent, mockD20.object);
 
       expect(hitAttempt).toBe(AttackOutcome.Hit);
     });
 
     it('Will miss on a D20 roll less than my opponents armour class.', () => {
 
-      const mockD20 = new Mock<D20>()
-        .setup(x => x.Roll)
-        .returns(() => opponent.ArmourClass -1).object();
+      const mockD20 = TypeMoq.Mock.ofType<D20>();
+      mockD20.setup(x => x.Roll()).returns(() => opponent.ArmourClass - 1);
 
-      const hitAttempt = combatant.Attack(opponent, mockD20);
+      const hitAttempt = combatant.Attack(opponent, mockD20.object);
 
       expect(hitAttempt).toBe(AttackOutcome.Miss);
     });
@@ -64,11 +60,10 @@ describe('A combatant', () => {
       const combatant: Combatant = new Character();
       const opponent: Combatant = new Character();
 
-      const mockD20 = new Mock<D20>()
-        .setup(x => x.Roll)
-        .returns(() => opponent.ArmourClass + 1).object();
+      const mockD20 = TypeMoq.Mock.ofType<D20>();
+      mockD20.setup(x => x.Roll()).returns(() => opponent.ArmourClass + 1);
 
-      const hitAttempt: AttackOutcome = combatant.Attack(opponent, mockD20);
+      const hitAttempt: AttackOutcome = combatant.Attack(opponent, mockD20.object);
 
       expect(hitAttempt).toBe(AttackOutcome.Hit);
       expect(opponent.HitPoints).toBe(4);
@@ -79,11 +74,10 @@ describe('A combatant', () => {
       const combatant: Combatant = new Character();
       const opponent: Combatant = new Character();
 
-      const mockD20 = new Mock<D20>()
-        .setup(x => x.Roll)
-        .returns(() => 20).object();
+      const mockD20 = TypeMoq.Mock.ofType<D20>();
+      mockD20.setup(x => x.Roll()).returns(() => 20);
 
-      const hitAttempt: AttackOutcome = combatant.Attack(opponent, mockD20);
+      const hitAttempt: AttackOutcome = combatant.Attack(opponent, mockD20.object);
 
       expect(hitAttempt).toBe(AttackOutcome.Critical);
       expect(opponent.HitPoints).toBe(3);
@@ -97,33 +91,32 @@ describe('A combatant', () => {
       const combatant: Combatant = new Character();
       const opponent: Combatant = new Character();
 
-      const mockD20 = new Mock<D20>()
-        .setup(x => x.Roll)
-        .returns(() => opponent.ArmourClass + 1).object();
+      const mockD20 = TypeMoq.Mock.ofType<D20>();
+      mockD20.setup(x => x.Roll()).returns(() => opponent.ArmourClass + 1);
 
-      expect(combatant.Attack(opponent, mockD20)).toBe(AttackOutcome.Hit);
+      expect(combatant.Attack(opponent, mockD20.object)).toBe(AttackOutcome.Hit);
       expect(opponent.HitPoints).toBe(4);
       expect(opponent.IsDead).toBe(false);
 
-      expect(combatant.Attack(opponent, mockD20)).toBe(AttackOutcome.Hit);
+      expect(combatant.Attack(opponent, mockD20.object)).toBe(AttackOutcome.Hit);
       expect(opponent.HitPoints).toBe(3);
       expect(opponent.IsDead).toBe(false);
 
-      expect(combatant.Attack(opponent, mockD20)).toBe(AttackOutcome.Hit);
+      expect(combatant.Attack(opponent, mockD20.object)).toBe(AttackOutcome.Hit);
       expect(opponent.HitPoints).toBe(2);
       expect(opponent.IsDead).toBe(false);
 
-      expect(combatant.Attack(opponent, mockD20)).toBe(AttackOutcome.Hit);
+      expect(combatant.Attack(opponent, mockD20.object)).toBe(AttackOutcome.Hit);
       expect(opponent.HitPoints).toBe(1);
       expect(opponent.IsDead).toBe(false);
 
       // Killing blow ...
-      expect(combatant.Attack(opponent, mockD20)).toBe(AttackOutcome.Hit);
+      expect(combatant.Attack(opponent, mockD20.object)).toBe(AttackOutcome.Hit);
       expect(opponent.HitPoints).toBe(0);
       expect(opponent.IsDead).toBe(true);
 
       // Overkill ...
-      expect(combatant.Attack(opponent, mockD20)).toBe(AttackOutcome.Hit);
+      expect(combatant.Attack(opponent, mockD20.object)).toBe(AttackOutcome.Hit);
       expect(opponent.HitPoints).toBe(-1);
       expect(opponent.IsDead).toBe(true);
     });
